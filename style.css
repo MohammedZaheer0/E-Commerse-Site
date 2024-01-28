@@ -479,6 +479,33 @@ footer .footerinstallapp .appgoogle img{
         gap: 1.5rem;
     }
 
+    /* Three Offers */
+    .three-offers h3{
+        font-size: 1.1rem;
+        text-align: left;
+    }
+    .three-offers p{
+        font-size: 0.8rem;
+    }
+
+    /* News Letters */
+    .newsletters .newslettersright{
+        width: 100%;
+    }
+    .newsletters .newslettersright input{
+        padding: 0.5rem;
+        width: 70%;
+        font-size: 0.9rem;
+    }
+    .newsletters .newslettersright .signup{
+        padding: 0.5rem;
+        width: 30%;
+        font-size: 0.9rem;
+        border: none;
+        background: var(--color-primary);
+        color: var(--color-white);
+        cursor: pointer;
+    }
 
     /* Featured Products */
     .product_cart{
@@ -550,6 +577,14 @@ footer .footerinstallapp .appgoogle img{
         gap: 1rem;
     }
 
+    /* Three Offers */
+    .three-offers h3{
+        font-size: 1.1rem;
+        text-align: left;
+    }
+    .three-offers p{
+        font-size: 0.8rem;
+    }
 
     /* Featured Products */
     .productcart-image{
@@ -566,6 +601,23 @@ footer .footerinstallapp .appgoogle img{
         gap: 1rem;
     }
 
+    .newsletters .newslettersright{
+        width: 100%;
+    }
+    .newsletters .newslettersright input{
+        padding: 0.5rem;
+        width: 70%;
+        font-size: 0.7rem;
+    }
+    .newsletters .newslettersright .signup{
+        padding: 0.5rem;
+        width: 30%;
+        font-size: 0.8rem;
+        border: none;
+        background: var(--color-primary);
+        color: var(--color-white);
+        cursor: pointer;
+    }
 
     /* Footer */
     footer{
@@ -638,7 +690,7 @@ footer .footerinstallapp .appgoogle img{
      }
  
      .newsletters .newslettersright{
-        width: 90%;
+        width: 100%;
     }
     .newsletters .newslettersright input{
         padding: 0.5rem;
@@ -648,6 +700,7 @@ footer .footerinstallapp .appgoogle img{
     .newsletters .newslettersright .signup{
         padding: 0.5rem;
         width: 30%;
+        font-size: 0.8rem;
         border: none;
         background: var(--color-primary);
         color: var(--color-white);
@@ -655,6 +708,7 @@ footer .footerinstallapp .appgoogle img{
     }
 
     .three-offers{
+        min-height: 100vh;
         display: grid;
         grid-template-columns: repeat(2,1fr);
         gap: 2rem;
