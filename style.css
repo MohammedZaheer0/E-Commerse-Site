@@ -55,6 +55,7 @@
 }
 ul li a:hover, ul li a::after{
     text-decoration: underline var(--color-primary);
+    text-underline-position: under;
     color: var(--color-primary);
 }
 
@@ -1307,10 +1308,12 @@ footer .footerinstallapp .appgoogle img{
 
 .about-image-content{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 40% 50%;
     gap: 2rem;
     width: 80%;
     margin: 4rem auto;
+    justify-content: center;
+    align-items: center;
 }
 .about-image-content .about-image img{
     width: 100%;
@@ -1323,4 +1326,71 @@ footer .footerinstallapp .appgoogle img{
 .about-image-content .about-content h2{
     margin-bottom: 1rem;
     font-size: 2rem;
+}
+.about-image-content .about-content p{
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+}
+.about-content .dots{
+    text-emphasis-style: circle;
+    text-emphasis-position: under;
+}
+marquee{
+    width: 100%;
+    background: #cccbcb;
+    padding: 0.2rem 0;
+}
+
+/* About Video */
+.about-video{
+    width: 70%;
+    min-height: 70vh;
+    margin: 3rem auto;
+    text-align: center;
+}
+.about-video h1{
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+.about-video h1 a{
+    color: blueviolet;
+}
+.about-video video{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+@media only screen and (max-width:550px){
+    .about-image-content{
+        grid-template-columns: 100%;
+        gap: 1rem;
+        width: 85%;
+    }
+    .about-image-content .about-content h2{
+        font-size: 1.5rem;
+    }
+    .about-video{
+        width: 85%;
+    }
+    .about-video h1{
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (min-width:551px) and (max-width:1024px){
+    .about-image-content{
+        grid-template-columns: 40% 60%;
+        gap: 1rem;
+        width: 85%;
+    }
+    .about-image-content .about-content h2{
+        font-size: 1.5rem;
+    }
+    .about-video{
+        width: 80%;
+    }
+    .about-video h1{
+        font-size: 1.5rem;
+    }
 }
