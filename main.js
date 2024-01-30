@@ -22,3 +22,24 @@ let Menu = document.querySelector(".navright ul");
         Menu.style.display = "none";
         Open.style.display = "block";
     });
+
+
+
+// Shop    
+let AllProducts = document.querySelectorAll(".product");
+AllProducts.forEach(Product => {
+    Product.addEventListener("click",()=>{
+        window.location.href = "Sproduct.html";
+    });
+});
+
+
+
+// Single Product Js
+let MainImg = document.getElementById("MainImg");
+let SPI = document.querySelectorAll(".SingleProductImages");
+SPI.forEach(Img =>{
+    Img.addEventListener("click",()=>{
+        MainImg.src = Img.src;
+    });
+});
