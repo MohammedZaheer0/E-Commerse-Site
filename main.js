@@ -43,3 +43,13 @@ SPI.forEach(Img =>{
         MainImg.src = Img.src;
     });
 });
+
+
+// From Input Clear
+let FormBtn = document.getElementById("submit");
+FormBtn.addEventListener("click",()=>{
+    let Inputs = document.querySelectorAll("#name, #email,#subject,#message");
+    Inputs.forEach(input =>{
+        input.value = "";
+    });
+});
