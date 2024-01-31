@@ -1344,8 +1344,8 @@ marquee{
 /* About Video */
 .about-video{
     width: 70%;
-    min-height: 70vh;
-    margin: 2rem  auto 1rem;
+    min-height: 50vh;
+    margin: 2rem  auto 0rem;
     text-align: center;
 }
 .about-video h1{
