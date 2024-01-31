@@ -1345,7 +1345,7 @@ marquee{
 .about-video{
     width: 70%;
     min-height: 70vh;
-    margin: 1rem auto;
+    margin: 2rem  auto 1rem;
     text-align: center;
 }
 .about-video h1{
