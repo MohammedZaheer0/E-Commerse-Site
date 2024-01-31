@@ -1407,10 +1407,16 @@ marquee{
     min-height:60vh;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50% 50%;
     gap: 2rem;
     padding: 5rem;
     margin: 1rem 0;
+}
+.contact-map{
+    width: 100%;
+}
+.contact-map iframe{
+    width: 100%;
 }
 .contact-details{
     display: flex;
@@ -1528,10 +1534,11 @@ marquee{
 
 @media only screen and (max-width:600px){
     .contact-details-map{
-        width:90;
+        width:100%;
+        display: grid;
         grid-template-columns: 1fr;
         gap: 1rem;
-        padding: 2rem;
+        padding:1rem;
     }
     .contact-details{
         display: flex;
@@ -1540,12 +1547,13 @@ marquee{
     }
     .contact-details .getintouch{
         margin: 2rem 0;
+        font-size: 0.7rem;
     }
     .contact-details h3{
-        font-size: 2rem;
+        font-size: 1rem;
     }
     .contact-details h5{
-        font-size: 1rem;
+        font-size: 0.8rem;
         margin: 1rem 0;
     }
     .contact-details .location{
@@ -1584,13 +1592,19 @@ marquee{
     .contact-details .timming i{
         margin-right: 10px;
     }
+    .contact-map{
+        width: 100%;
+    }
+    .contact-map iframe{
+        width: 100%;
+    }
     .contact-form-people{
         width: 100%;
         min-height:70vh;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-        padding: 2rem;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 2rem 1rem;
     }
     .contact-form-people form{
         width: 100%;
