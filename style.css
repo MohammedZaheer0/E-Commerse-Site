@@ -1652,6 +1652,9 @@ marquee{
     background-size: cover;
     background-repeat: no-repeat;
 }
+.table{
+    overflow-x: auto;
+}
 .table table{
     margin: 3rem 0;
     width: 100%;
@@ -1667,17 +1670,17 @@ marquee{
 .table table td:nth-child(4),
 .table table td:nth-child(5),
 .table table td:nth-child(6){
-    width: 12%;
+    width: 150px;
     text-align: center;
     width: fit-content;
 }
 .table table td:nth-child(2),
 .table table td:nth-child(3){
-    width: 25%;
+    width: 200px;
     text-align: center;
 }
 .table table td:nth-child(5) input{
-    width: 27%;
+    width: 70px;
     padding:0.5rem 0.7rem;
 }
 .table table thead {
@@ -1754,21 +1757,32 @@ marquee{
     text-align: start;
 }
 
+
 /* Cart Media Query for Smaller Screen Phone */
 @media only screen and (max-width:600px){
     .table table{
         margin: 2rem 0;
-        overflow-x:  auto;
+        overflow: auto;
         width: 100%;
+        padding: 0.5rem;
     }
     .table table tbody img{
         width: 30px;
     }
-    .table table td:nth-child(1),
-    .table table td:nth-child(4),
-    .table table td:nth-child(5),
+    .table table td:nth-child(1){
+        width: 20px;
+        text-align: center;
+        width: fit-content;
+        font-size: 0.5rem;
+    }
+    .table table td:nth-child(5){
+        width: 30px;
+        text-align: center;
+        width: fit-content;
+        font-size: 0.5rem;
+    }
     .table table td:nth-child(6){
-        width: 50px;
+        width: 40px;
         text-align: center;
         width: fit-content;
         font-size: 0.5rem;
@@ -1778,14 +1792,17 @@ marquee{
         text-align: center;
         font-size: 0.5rem;
     }
-    .table table td:nth-child(3){
-        width: 90px;
-        text-align: center;
-        font-size: 0.5rem;
+    .table table td:nth-child(3),
+    .table table td:nth-child(4){
+    width: auto;
+    text-align: center;
+    font-size: 0.5rem; 
+    overflow: hidden;
     }
+
     .table table td:nth-child(5) input{
         width: 30px;
-        padding:0.5rem;
+        padding:0.2rem;
         font-size: 0.5rem;
     }
     .table table thead {
@@ -1794,9 +1811,6 @@ marquee{
     .table table thead tr th{
         padding: 1rem 0;
         font-size: 0.5rem;
-    }
-    .table table thead tr td{
-        width:100%;
     }
     .cart-coupon-total{
         width: 100%;
@@ -1823,5 +1837,101 @@ marquee{
     .cart-total{
         width: 100%;
     }
+    
+}
+
+@media only screen and (min-width:601px) and (max-width:768px){
+    .table table{
+        margin: 2rem 0;
+        overflow: auto;
+        width: 100%;
+        padding: 1rem;
+    }
+    .table table tbody img{
+        width: 70px;
+    }
+    .table table td:nth-child(1){
+        width: 30px;
+        text-align: center;
+        width: fit-content;
+        font-size: 0.7rem;
+    }
+    .table table td:nth-child(5){
+        width: 40px;
+        text-align: center;
+        width: fit-content;
+        font-size: 0.7rem;
+    }
+    .table table td:nth-child(6){
+        width: 50px;
+        text-align: center;
+        width: fit-content;
+        font-size: 0.7rem;
+    }
+    .table table td:nth-child(2){
+        width: 90px;
+        text-align: center;
+        font-size: 0.7rem;
+    }
+    .table table td:nth-child(3),
+    .table table td:nth-child(4){
+    width: 90px;
+    text-align: center;
+    font-size: 0.7rem; 
+    overflow: hidden;
+    overflow-wrap: break-word;
+}
+
+    .table table td:nth-child(5) input{
+        width: 30px;
+        padding:0.2rem;
+        font-size: 0.7rem;
+    }
+    .table table thead {
+        border: 1px solid #cccbcb;
+    }
+    .table table thead tr th{
+        padding: 1rem 0;
+        font-size: 0.7rem;
+    }
+    .cart-coupon-total{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-content: flex-start;
+        margin: 2rem 0;
+        padding:2rem;
+    }
+    .cart-coupon{
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+    .cart-coupon .coupon-input-apply{
+        justify-content: space-between;
+    }
+    .cart-coupon .coupon-input-apply input{
+        font-size: 0.9rem;
+    }
+    .cart-coupon .coupon-input-apply .couponbtn,
+    .cart-total .checkout{
+        font-size: 0.9rem;
+    }    
+    .cart-total{
+        width: 100%;
+    }
+    
+}
+
+@media only screen and (min-width:769px) and (max-width:1024px){
+    
+    .table table td:nth-child(3),
+    .table table td:nth-child(4){
+    width: 90px;
+    text-align: center;
+    font-size: 0.9rem; 
+    overflow: hidden;
+    overflow-wrap: break-word;
+}
+
     
 }
