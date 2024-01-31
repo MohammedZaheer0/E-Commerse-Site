@@ -46,10 +46,10 @@ SPI.forEach(Img =>{
 
 
 // From Input Clear
-let FormBtn = document.getElementById("submit");
-FormBtn.addEventListener("click",()=>{
-    let Inputs = document.querySelectorAll("#name, #email,#subject,#message");
-    Inputs.forEach(input =>{
-        input.value = "";
-    });
-});
+// let FormBtn = document.getElementById("submit");
+// FormBtn.addEventListener("click",()=>{
+//     let Inputs = document.querySelectorAll("#name, #email,#subject,#message");
+//     Inputs.forEach(input =>{
+//         input.value = "";
+//     });
+// });
