@@ -1112,7 +1112,7 @@ footer .footerinstallapp .appgoogle img{
  /* Single Product Page */
  .product-show-container{
     display: grid;
-    grid-template-columns: 40% 50%;
+    grid-template-columns: 30% 60%;
     padding:2rem 5rem;
     gap: 5rem;
  }
@@ -1122,15 +1122,25 @@ footer .footerinstallapp .appgoogle img{
  .product-images-container .product-bottom-images{
     width: 24%;
     display: flex;
+    margin-top: 1rem;
  }
  .product-images-container .product-bottom-images img{
     margin-right: 6px;
 }
-.product-details-container h4{
-    padding: 2rem 0;
+.product-images-container h4{
+    color: rgb(247, 39, 39);
+    font-size: 1.1rem;
 }
+.product-images-container h2{
+    font-size: 1.1rem;
+    background: #ffd000;
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
 .product-details-container h2{
-    padding:0 0 1rem 0;
+    padding:2rem 0 1rem 0;
 }
 .product-details-container select{
     margin: 0 0  0.5rem 0;
