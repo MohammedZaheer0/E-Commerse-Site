@@ -85,15 +85,15 @@ let AddToCart = document.querySelector(".addToCart").addEventListener("click",()
 });
 
 
-let deleteIcons = document.querySelector(".delete");
-deleteIcons.forEach((deleteIcon, index) => {
-  deleteIcon.addEventListener("click", function() {
-    let productDetails = JSON.parse(localStorage.getItem("ProductDetailes")) || [];
-    productDetails.splice(index, 1);
-    localStorage.setItem("ProductDetailes", JSON.stringify(productDetails));
-    ProductData();
-  });
-});
+// let deleteIcons = document.querySelector(".delete");
+// deleteIcons.forEach((deleteIcon, index) => {
+//   deleteIcon.addEventListener("click", function() {
+//     let productDetails = JSON.parse(localStorage.getItem("ProductDetailes")) || [];
+//     productDetails.splice(index, 1);
+//     localStorage.setItem("ProductDetailes", JSON.stringify(productDetails));
+//     ProductData();
+//   });
+// });
 
 
 
