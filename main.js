@@ -52,7 +52,6 @@ product.addEventListener('click', function () {
       price: price,
       uniqueId: Math.floor(Math.random()*100)
     });
-    console.log(GetProductDetailes)
     localStorage.setItem("ProductDetailes",JSON.stringify(GetProductDetailes));
 
     window.location.href = "Sproduct.html";
@@ -65,7 +64,6 @@ product.addEventListener('click', function () {
 
  let ProductData = ()=>{
 let ProductDetailes = JSON.parse(localStorage.getItem("ProductDetailes")) ?? [];
-console.log(ProductDetailes);
 
   ProductDetailes.forEach((Img,i) =>{
     let MainImageElement = document.querySelector(".MainImg");
@@ -80,19 +78,22 @@ console.log(ProductDetailes);
 ProductData();
 
 
-let AddToCart = document.querySelector(".addToCart");
-AddToCart.addEventListener("click",function(){
+
+let AddToCart = document.querySelector(".addToCart").addEventListener("click",()=>{
   ProductData();
   window.location.href = "cart.html";
-  })
+});
 
-  let Xmark = document.querySelector(".delete");
-  Xmark.addEventListener("click",()=>{
-  localStorage.clear("ProductDetailes");
+
+let deleteIcons = document.querySelector(".delete");
+deleteIcons.forEach((deleteIcon, index) => {
+  deleteIcon.addEventListener("click", function() {
+    let productDetails = JSON.parse(localStorage.getItem("ProductDetailes")) || [];
+    productDetails.splice(index, 1);
+    localStorage.setItem("ProductDetailes", JSON.stringify(productDetails));
+    ProductData();
   });
-
-
-
+});
 
 
 
