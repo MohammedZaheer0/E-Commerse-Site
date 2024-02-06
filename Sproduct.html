@@ -225,22 +225,22 @@
         let ProductData = ()=>{
         let ProductDetailes = JSON.parse(localStorage.getItem("ProductDetailes")) ?? [];
 
-        ProductDetailes.forEach((Img,i) =>{
-            let MainImageElement = document.querySelector(".MainImg");
-            let clothNameElement = document.querySelector(".clothName");
-            let clothPriceElement = document.querySelector(".clothprice");
+        ProductDetailes.forEach((Element, i) => {
+    let MainImageElement = document.querySelector(".MainImg");
+    let clothNameElement = document.querySelector(".clothName");
+    let clothPriceElement = document.querySelector(".clothprice");
 
-        MainImageElement.src = Img.image;
-        clothNameElement.textContent = Img.clothName;
-        clothPriceElement.textContent = Img.price;
-        });
+    MainImageElement.src = Element.image;
+    clothNameElement.textContent = Element.clothName;
+    clothPriceElement.textContent = Element.price;
+});
         }
         ProductData();
 
 
         let AddToCart = document.querySelector(".addToCart");
         AddToCart.addEventListener("click",()=>{
-        window.location.href = "cart.html";
+        window.location.href = "/cart.html";
             // ProductData();
         });
 

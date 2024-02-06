@@ -55,17 +55,15 @@
                         <th>PRODUCT</th>
                         <th>PRICE</th>
                         <th>QUANTITY</th>
-                        <th>SUBTOTAL</th>
                     </tr>
                 </thead> 
-                <tbody>
+                <tbody id="tbody">
                     <!-- <tr>
                         <td id="delete"><i class="fa-solid fa-circle-xmark"></i></td>
                         <td><img src="" class="MainImg"></td>
                         <td class="clothName"></td>
                         <td class="clothprice"></td>
                         <td><input type="number" value="1"></td>
-                        <td class="clothprice"></td>
                     </tr>    -->
    
                 </tbody>
@@ -164,39 +162,59 @@
 
     <script>
 
-let CartProductData = ()=>{
-        let ProductDetailes = JSON.parse(localStorage.getItem("ProductDetailes")) ?? [];
-        let Table = document.querySelector(".table table tbody");    
-        let CartData = '';
-        let Quantity = 1;
-        let TotalPrice = 0;
-        let ClothPrice = document.querySelectorAll(".clothprice");
-        // let Input = document.querySelector(".input").value;
-        ProductDetailes.forEach((Element) => {
-        CartData += `<tr>
-                        <td id="delete"><i class="fa-solid fa-circle-xmark"></i></td>
-                        <td><img src=${Element.image} class="MainImg"></td>
-                        <td class="clothName">${Element.clothName}</td>
-                        <td class="clothprice">${Element.price}</td>
-                        <td><input type="number" class="input" value="1"></td>
-                        <td class="totalclothprice">${Element.price}</td>
-                    </tr>`;
-        if (!isNaN(parseFloat(Element.price))) {
-            TotalPrice += parseFloat(Element.price);
+        // let TotalPrice = 0;
+        let CartProductData = () => {
+            let ProductDetailes = JSON.parse(localStorage.getItem("ProductDetailes")) ?? [];
+            let TableBody = document.getElementById("tbody");
+            ProductDetailes.forEach((Element, index) => {
+                let CartData = document.createElement("tr");
+                let ProductPrice = parseFloat(Element.price);
+                // let Quantity = 0;
+
+                CartData.innerHTML = `<tr class="tableRow">
+                                        <td id="delete"><i class="fa-solid fa-circle-xmark"></i></td>
+                                        <td><img src=${Element.image} class="MainImg"></td>
+                                        <td class="clothName">${Element.clothName}</td>
+                                        <td class="clothprice">${Element.price}</td>
+                                        <td id="inline">
+                                            <button class="decrease" data-index="${index}">-</button>
+                                            <p class="number">1</p>
+                                            <button class="increase" data-index="${index}">+</button>
+                                        </td>
+                                    </tr>`;
+                TableBody.appendChild(CartData);
+                let TotalPriceElement = document.querySelectorAll(".Totalclothprice");
+                TotalPriceElement.forEach(price =>{
+                    price.textContent = `${Element.price}`;                                    
+                })
+                // CartData.querySelector(".increase").addEventListener("click", function () {
+                //     Quantity += 1;
+                //     TotalPrice += ProductPrice;
+                //     updateProductDetails(CartData, Quantity, TotalPrice);
+                // });
+
+                // CartData.querySelector(".decrease").addEventListener("click", function () {
+                //     if (Quantity > 0) {
+                //         Quantity -= 1;
+                //         TotalPrice -= ProductPrice;
+                //         updateProductDetails(CartData, Quantity, TotalPrice);
+                //     }
+                // });
+            });
+
+        //     function updateProductDetails(CartData, Quantity, TotalPrice) {
+        //     CartData.querySelector(".number").textContent = Quantity;
+
+        //     let TotalPriceElement = document.querySelectorAll(".Totalclothprice");
+        //     TotalPriceElement.forEach(element => {
+        //         element.textContent = `$ ${parseFloat(TotalPrice).toFixed(2)}`;
+        //     });
+        //     console.log(TotalPrice);
+        // }
         }
-    });
-                   
-    Table.innerHTML = CartData;
-    let TotalClothPrice = document.querySelectorAll(".Totalclothprice");
-    TotalClothPrice.forEach(element => {
-        element.textContent = TotalPrice.toFixed(2);
-    });
-}
-
-CartProductData();
-
+        CartProductData();
     </script>
 
 
 </body>
-</html>
+</html> 

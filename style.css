@@ -1718,6 +1718,20 @@ marquee{
 .table table tbody tr td{
     padding-top: 1rem;
 }
+.table table tbody tr td .decrease,
+.table table tbody tr td .increase{
+    padding:0 0.2rem;
+    font-size: 1.3rem;
+    display: inline;
+    margin: 0 10px;
+}
+#inline{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 1.5rem auto 0;
+}
 
 .cart-coupon-total{
     width: 100%;
