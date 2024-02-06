@@ -311,7 +311,6 @@
         </div>
 
 
-
         <section class="newsletters">
             <div class="newslettersleft">
                 <h3>Sign Up For Newsletters</h3>
@@ -322,8 +321,6 @@
                 <button class="signup">Sign Up</button>
             </form>
         </section>
-
-
 
 
 
@@ -381,6 +378,36 @@
 
     </div>
     
-    <script src="main.js"></script>
+    <!-- <script src="main.js"></script> -->
+
+    <script>
+
+        // Shop    
+        const products = document.querySelectorAll('.product');
+        products.forEach((product) => {
+        product.addEventListener('click', function () {
+        const imageElement = product.querySelector('.product_image_is');
+        const clothElement = product.querySelector('.cloth_is');
+        const priceElement = product.querySelector('.price');
+
+        let GetProductDetailes = JSON.parse(localStorage.getItem("ProductDetailes")) ?? [];  
+        if (imageElement && clothElement && priceElement) {
+            const imageSrc = imageElement.src;
+            const clothName = clothElement.textContent;
+            const price = priceElement.textContent;
+
+            GetProductDetailes.push({
+            image: imageSrc,
+            clothName: clothName,
+            price: price,
+            uniqueId: Math.floor(Math.random()*100)
+            });
+            localStorage.setItem("ProductDetailes",JSON.stringify(GetProductDetailes));
+
+            window.location.href = "/Sproduct.html";
+        }
+        });
+        });
+    </script>
 </body>
 </html>

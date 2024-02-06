@@ -55,18 +55,18 @@
                         <th>PRODUCT</th>
                         <th>PRICE</th>
                         <th>QUANTITY</th>
-                        <!-- <th>SUBTOTAL</th> -->
+                        <th>SUBTOTAL</th>
                     </tr>
                 </thead> 
                 <tbody>
-                    <tr>
+                    <!-- <tr>
                         <td id="delete"><i class="fa-solid fa-circle-xmark"></i></td>
                         <td><img src="" class="MainImg"></td>
                         <td class="clothName"></td>
                         <td class="clothprice"></td>
                         <td><input type="number" value="1"></td>
-                        <!-- <td class="clothprice"></td> -->
-                    </tr>   
+                        <td class="clothprice"></td>
+                    </tr>    -->
    
                 </tbody>
             </table>
@@ -88,7 +88,7 @@
                 <table>
                     <tr>
                         <td>Cart SubTotal</td>
-                        <td class="clothprice">0</td>
+                        <td class="Totalclothprice">0</td>
                     </tr>
                     <tr>
                         <td>Shopping</td>
@@ -96,7 +96,7 @@
                     </tr>
                     <tr>
                         <th>Total</th>
-                        <th class="clothprice">0</th>
+                        <th class="Totalclothprice">0</th>
                     </tr>
                 </table>
                 <button class="checkout">Proceed To Checkout</button>
@@ -158,6 +158,45 @@
 
     </div>
     
-    <script defer src="main.js"></script>
+    <script src="main.js"></script>
+
+
+
+    <script>
+
+let CartProductData = ()=>{
+        let ProductDetailes = JSON.parse(localStorage.getItem("ProductDetailes")) ?? [];
+        let Table = document.querySelector(".table table tbody");    
+        let CartData = '';
+        let Quantity = 1;
+        let TotalPrice = 0;
+        let ClothPrice = document.querySelectorAll(".clothprice");
+        // let Input = document.querySelector(".input").value;
+        ProductDetailes.forEach((Element) => {
+        CartData += `<tr>
+                        <td id="delete"><i class="fa-solid fa-circle-xmark"></i></td>
+                        <td><img src=${Element.image} class="MainImg"></td>
+                        <td class="clothName">${Element.clothName}</td>
+                        <td class="clothprice">${Element.price}</td>
+                        <td><input type="number" class="input" value="1"></td>
+                        <td class="totalclothprice">${Element.price}</td>
+                    </tr>`;
+        if (!isNaN(parseFloat(Element.price))) {
+            TotalPrice += parseFloat(Element.price);
+        }
+    });
+                   
+    Table.innerHTML = CartData;
+    let TotalClothPrice = document.querySelectorAll(".Totalclothprice");
+    TotalClothPrice.forEach(element => {
+        element.textContent = TotalPrice.toFixed(2);
+    });
+}
+
+CartProductData();
+
+    </script>
+
+
 </body>
 </html>

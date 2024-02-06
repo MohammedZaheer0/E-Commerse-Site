@@ -44,8 +44,6 @@
 
             <div class="product-images-container">
                 <img src="" class="MainImg">
-                <h4 class="clothName"></h4>
-                <h2 class="clothprice"></h2>
                 <div class="product-bottom-images">
                     <img src="images/f1.jpg" class="SingleProductImages">
                     <img src="images/f3.jpg" class="SingleProductImages">
@@ -55,7 +53,8 @@
             </div>
 
             <div class="product-details-container">
-                <h2>Shop Now</h2>
+                <h4 class="clothName"></h4>
+                <h2 class="clothprice"></h2>
                 <select>
                     <option>Select Size</option>
                     <option>XXXL</option>
@@ -219,6 +218,34 @@
 
 
     </div>
-    <script src="main.js" defer></script>
+    <script src="main.js"></script>
+
+    <script>
+
+        let ProductData = ()=>{
+        let ProductDetailes = JSON.parse(localStorage.getItem("ProductDetailes")) ?? [];
+
+        ProductDetailes.forEach((Img,i) =>{
+            let MainImageElement = document.querySelector(".MainImg");
+            let clothNameElement = document.querySelector(".clothName");
+            let clothPriceElement = document.querySelector(".clothprice");
+
+        MainImageElement.src = Img.image;
+        clothNameElement.textContent = Img.clothName;
+        clothPriceElement.textContent = Img.price;
+        });
+        }
+        ProductData();
+
+
+        let AddToCart = document.querySelector(".addToCart");
+        AddToCart.addEventListener("click",()=>{
+        window.location.href = "cart.html";
+            // ProductData();
+        });
+
+    </script>
+
+
 </body>
 </html>

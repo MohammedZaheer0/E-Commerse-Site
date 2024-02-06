@@ -458,5 +458,15 @@
     </div>
     
     <script src="main.js"></script>
+    <script>
+
+const products = document.querySelectorAll('.product');
+        products.forEach((product) => {
+        product.addEventListener('click', function () {
+        window.location.href = "/shop.html";
+        });
+        });
+
+    </script>
 </body>
 </html>

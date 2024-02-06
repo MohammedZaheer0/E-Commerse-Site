@@ -27,64 +27,6 @@ let Menu = document.querySelector(".navright ul");
 
 
 
-// Shop    
-const products = document.querySelectorAll('.product');
-
-
-
-products.forEach((product) => {
-product.addEventListener('click', function () {
-  
-  window.location.href = "shop.html";
-  const imageElement = product.querySelector('.product_image_is');
-  const clothElement = product.querySelector('.cloth_is');
-  const priceElement = product.querySelector('.price');
-
-  let GetProductDetailes = JSON.parse(localStorage.getItem("ProductDetailes")) ?? [];  
-  if (imageElement && clothElement && priceElement) {
-    const imageSrc = imageElement.src;
-    const clothName = clothElement.textContent;
-    const price = priceElement.textContent;
-
-    GetProductDetailes.push({
-      image: imageSrc,
-      clothName: clothName,
-      price: price,
-      uniqueId: Math.floor(Math.random()*100)
-    });
-    localStorage.setItem("ProductDetailes",JSON.stringify(GetProductDetailes));
-
-    window.location.href = "Sproduct.html";
-    
-  }
-});
-
-});
-
-
- let ProductData = ()=>{
-let ProductDetailes = JSON.parse(localStorage.getItem("ProductDetailes")) ?? [];
-
-  ProductDetailes.forEach((Img,i) =>{
-    let MainImageElement = document.querySelector(".MainImg");
-    let clothNameElement = document.querySelector(".clothName");
-    let clothPriceElement = document.querySelector(".clothprice");
-
-  MainImageElement.src = Img.image;
-  clothNameElement.textContent = Img.clothName;
-  clothPriceElement.textContent = Img.price;
-  });
-}
-ProductData();
-
-
-
-let AddToCart = document.querySelector(".addToCart").addEventListener("click",()=>{
-  ProductData();
-  window.location.href = "cart.html";
-});
-
-
 // let deleteIcons = document.querySelector(".delete");
 // deleteIcons.forEach((deleteIcon, index) => {
 //   deleteIcon.addEventListener("click", function() {
