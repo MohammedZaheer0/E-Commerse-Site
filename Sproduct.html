@@ -232,7 +232,15 @@
 
     MainImageElement.src = Element.image;
     clothNameElement.textContent = Element.clothName;
-    clothPriceElement.textContent = Element.price;
+
+    let priceWithoutDollarSign = Element.price.replace('$', '');
+        let parsedPrice = parseFloat(priceWithoutDollarSign);
+
+        if (!isNaN(parsedPrice)) {
+            clothPriceElement.textContent = `$${parsedPrice.toFixed(2)}`;
+        } else {
+            console.error(`Invalid price for product at index ${i}`);
+        }
 });
         }
         ProductData();

@@ -27,18 +27,6 @@ let Menu = document.querySelector(".navright ul");
 
 
 
-// let deleteIcons = document.querySelector(".delete");
-// deleteIcons.forEach((deleteIcon, index) => {
-//   deleteIcon.addEventListener("click", function() {
-//     let productDetails = JSON.parse(localStorage.getItem("ProductDetailes")) || [];
-//     productDetails.splice(index, 1);
-//     localStorage.setItem("ProductDetailes", JSON.stringify(productDetails));
-//     ProductData();
-//   });
-// });
-
-
-
 
 // Single Product Js
 let MainImg = document.querySelector(".MainImg");
