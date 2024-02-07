@@ -1703,10 +1703,10 @@ marquee{
     width: 200px;
     text-align: center;
 }
-.table table td:nth-child(5) input{
+/* .table table td:nth-child(5) input{
     width: 70px;
     padding:0.5rem 0.7rem;
-}
+} */
 .table table thead {
     border: 1px solid #cccbcb;
     border-left: none;
@@ -1874,6 +1874,18 @@ marquee{
     }    
     .cart-total{
         width: 100%;
+    }
+    .table table tbody tr td .number{
+        font-size: 0.5rem;
+    }
+    .table table tbody tr td .decrease,
+    .table table tbody tr td .increase{
+    padding:0 0.1rem;
+    font-size: 0.8rem;
+    margin: 0 4px;
+    }
+    #inline{
+    margin: 0.5rem auto 0;
     }
     
 }
