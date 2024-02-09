@@ -107,6 +107,14 @@ ul li a:hover, ul li a::after{
     padding-left: 5rem;  
     cursor: pointer;
 }
+.main-content-left .btn a{
+    text-decoration: none;
+    color: #000;
+}
+.main-content-left .btn a:hover{
+    text-decoration: underline #7c7b7b;
+    text-underline-position: under;
+}
 .main-content-right img{
     height: 100%;
     width: 100%;
@@ -200,6 +208,7 @@ ul li a:hover, ul li a::after{
 .product_cart p,h4,.five-star{
     text-align: left;
     margin: 0.5rem 0;
+    padding-left: 10px;
 }
 .five-star i{
     color: #ffd000;
@@ -296,7 +305,8 @@ ul li a:hover, ul li a::after{
     margin-bottom: 1rem;
 }
 .offers .offer-left .offer-btn,
-.offers .offer-right .offer-btn{
+.offers .offer-right .offer-btn,
+.three-offers .offer-btn{
     width: fit-content;
     padding: 0.6rem 1rem;
     border: 1px solid #fff;
@@ -304,9 +314,18 @@ ul li a:hover, ul li a::after{
     font-weight: 600;
     background: transparent;
     cursor: pointer;
+    margin-top: 1rem;
 }
+.offers .offer-left .offer-btn a,
+.offers .offer-right .offer-btn a,
+.three-offers .offer-btn a{
+    text-decoration: none;
+    color: #fff;
+}
+
 .offers .offer-left .offer-btn:hover,
-.offers .offer-right .offer-btn:hover{
+.offers .offer-right .offer-btn:hover,
+.three-offers .offer-btn:hover{
     background: var(--color-primary);
     /* border: none; */
 }
@@ -950,7 +969,7 @@ footer .footerinstallapp .appgoogle img{
          position: absolute;
          right: 1rem;
          bottom: 1.4rem;
-         font-size: 1rem;
+         font-size: 1.2rem;
      }
      .product_cart .product img{
          height: 70%;
@@ -977,6 +996,20 @@ footer .footerinstallapp .appgoogle img{
      .repairservice .btn{
         font-size: 0.7rem;
      }
+
+    .offers .offer-left .offer-btn,
+    .offers .offer-right .offer-btn,
+    .three-offers .offer-btn{
+        padding: 0.3rem 0.8rem;
+        margin-top: 0.3rem;
+    }
+    .offers .offer-left .offer-btn a,
+    .offers .offer-right .offer-btn a,
+    .three-offers .offer-btn a{
+
+        font-size: 0.7rem;
+    }
+
      /* NewsLetters */
     .newsletters{
         grid-template-columns: 1fr;
@@ -1099,13 +1132,28 @@ footer .footerinstallapp .appgoogle img{
     justify-content: center;
     align-items: center;
  }
- .pagination h4{
+ .pagination .fil-p{
     background: var(--color-primary);
-    padding: 0.9rem 1.3rem;
+    padding: 0.6rem 1rem;
     margin: 0px 4px;
     color: var(--color-white);
     border-radius: 4px;
     cursor: pointer;
+    font-size: 1rem;
+    border: none;
+ }
+ .pagination .fil-p:hover{
+    background-color: rgb(2, 2, 2);
+ }
+ .pagination .fil-p:nth-child(1),
+ .pagination .fil-p:nth-child(5){
+    /* display: none; */
+    padding:0 0.5rem 0 0;
+    font-size: 1.2rem;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
  }
 
 

@@ -38,14 +38,13 @@ SPI.forEach(Img =>{
 });
 
 
-// From Input Clear
-// let FormBtn = document.getElementById("submit");
-// FormBtn.addEventListener("click",()=>{
-//     let Inputs = document.querySelectorAll("#name, #email,#subject,#message");
-//     Inputs.forEach(input =>{
-//         input.value = "";
-//     });
-// });
+let FormBtn = document.querySelector(".submit");
+    FormBtn.addEventListener("click",()=>{
+        
+        setTimeout(() => {
+        let Inputs = document.querySelector(".emailid").value = ""; 
+        },400);
+    })
 
 
 

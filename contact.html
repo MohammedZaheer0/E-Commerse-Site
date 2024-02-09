@@ -78,13 +78,13 @@
 
 
         <section class="contact-form-people">
-            <form action="https://formspree.io/f/xoqgjoqz" method="post">
+            <form action="https://formspree.io/f/xoqgjoqz" method="post" id="form">
                 <span>LEAVE A MESSAGE</span>
                 <h3>We love to here from you</h3>
-                <input type="text" placeholder="Your Name" name="name" id="name" required>
-                <input type="email" placeholder="E-main" name="email" id="email" required>
-                <input type="text" placeholder="Subject" name="subject" id="subject" required>
-                <textarea name="message" id="message" rows="10" placeholder="Your Message" required></textarea>
+                <input type="text" placeholder="Your Name" name="name" class="name" required>
+                <input type="email" placeholder="E-main" name="email" class="email" required>
+                <input type="text" placeholder="Subject" name="subject" class="subject" required>
+                <textarea name="message" class="message" rows="10" placeholder="Your Message" required></textarea>
                 <button id="submit" class="submit">Submit</button>
             </form>
             <div class="contact-people">
@@ -115,17 +115,6 @@
         </section>
 
 
-
-        <section class="newsletters">
-            <div class="newslettersleft">
-                <h3>Sign Up For Newsletters</h3>
-                <p>Get E-mail updates about our latest shop and <span>special offers.</span></p>
-            </div>
-            <form class="newslettersright">
-                <input type="email" name="email" id="email" placeholder="Enter Your Email Address" required>
-                <button class="signup">Sign Up</button>
-            </form>
-        </section>
 
 
 
@@ -184,5 +173,20 @@
     </div>
     
     <script src="main.js"></script>
+
+    <script>
+    let FormBtn = document.querySelector(".submit");
+    FormBtn.addEventListener("click",()=>{
+        
+        setTimeout(() => {
+        let Inputs = document.querySelectorAll(".name,.email,.subject,.message");
+        Inputs.forEach(input =>{
+            input.value = "";
+        }); 
+        },400);
+    })
+
+    </script>
+
 </body>
 </html>
