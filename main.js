@@ -48,5 +48,24 @@ let FormBtn = document.querySelector(".submit");
 
 
 
+
+
+// let ValidUrls = ["about", "blog", "cart", "contact", "index", "page-not-found", "Sblog", "shop", "Sproduct", "thankyou"];
+
+// let CurrentUrl = window.location.pathname.split('/').pop().toLowerCase();
+
+// if (!ValidUrls.includes(CurrentUrl)) {
+//     console.log("Redirecting to page-not-found.html");
+//     window.location.href = "/page-not-found.html";
+// }
+
+
+
+
 });
+
+
+
+
+
 

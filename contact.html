@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>Ecommerce Website</title>
+    <title>UrbanoGrove Website</title>
 </head>
 <body>
 
@@ -177,13 +177,27 @@
     <script>
     let FormBtn = document.querySelector(".submit");
     FormBtn.addEventListener("click",()=>{
-        
         setTimeout(() => {
         let Inputs = document.querySelectorAll(".name,.email,.subject,.message");
         Inputs.forEach(input =>{
             input.value = "";
+        let Name = document.querySelector(".name").value;
+        let Email = document.querySelector(".email").value;
+        let Subject = document.querySelector(".subject").value;
+        let Message = document.querySelector(".message").value;
+
+        if(Name == Name && Email == Email && Subject == Subject && Message == Message){
+            window.location.assign("thankyou.html");
+        }
+        else{
+            alert("Invalid Input");
+        }
         }); 
-        },400);
+        },300);
+
+        
+
+
     })
 
     </script>

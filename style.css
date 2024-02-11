@@ -4,7 +4,6 @@
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
-
 :root{
     --color-success: rgb(4, 161, 30);
     --color-primary:rgb(4, 139, 133);
@@ -130,7 +129,6 @@ ul li a:hover, ul li a::after{
     margin: 2rem 0;
 }
 .details .details-box{
-
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 0.5rem;
     padding: 1rem;
@@ -1277,11 +1275,42 @@ footer .footerinstallapp .appgoogle img{
     height: 50%;
     width: 60%;
 }
+.blog-content{
+    padding-right: 1rem;
+    position: relative;
+}
 .blog-content p{
     margin: 1.2rem 0;
 }
+.blog-content .btitle{
+    padding: 0 0 0 1.5rem;
+}
+.blog-content .btitle::before{
+    content: "+";
+    font-size: 1.5rem;
+    position: absolute;
+    margin-left: -2rem;
+    margin-top: -0.2rem;
+}
+.blog-content input[type="radio"]{
+    display: none;
+}
+.accordian .bp{
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s;
+
+}
+.blog-content input[type="radio"]:checked + h3 + .bp{
+    max-height: 400px;
+}
+.blog-content input[type="radio"]:checked + h3::before{
+    content: "-";
+}
+
 .blog-content h5{
     position: relative;
+    cursor: pointer;
 }
 .blog-content h5::after{
     content: "";
@@ -1387,15 +1416,14 @@ footer .footerinstallapp .appgoogle img{
 }
 .about-image-content .about-content p{
     margin-bottom: 1.5rem;
-    line-height: 1.3;
+    line-height: 1.5;
 }
-.about-content .dots{
-    text-emphasis-style: circle;
-    text-emphasis-position: under;
+.unique{
+    background: linear-gradient(-45deg,rgb(240, 225, 195),rgb(203, 203, 245));
 }
 marquee{
     width: 100%;
-    background: #cccbcb;
+    background: linear-gradient(to left,rgb(245, 243, 164),rgb(158, 236, 197));
     padding: 0.2rem 0;
 }
 
@@ -1716,6 +1744,38 @@ marquee{
     }
 }
 
+/* Thankyou Page */
+.thankyou-box{
+    width: 60%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem auto;
+    font-size: 1.5rem;
+    text-align: center;
+}
+.thankyou-box h1{
+    margin-bottom: 1rem;
+}
+.backtohome button{
+    border: none;
+    margin: 1.5rem 0;
+    cursor: pointer;
+}
+.backtohome button a{
+    text-decoration: none;
+    border-radius: 50px;
+    color: #fff;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    background: var(--color-primary);
+}
+.backtohome button a:hover{
+    color: #000;
+    background: #b66802c5;
+}
 
 /* Cart Page */
 .cart-main{

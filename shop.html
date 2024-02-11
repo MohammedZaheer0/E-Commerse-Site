@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>Ecommerce Website</title>
+    <title>UrbanoGrove Website</title>
 </head>
 <body>
 
@@ -50,7 +50,7 @@
         <section class="featured_products">
 
             <div class="product_cart">
-                <!-- <article class="product">
+                <article class="product">
                     <img src="images/f1.jpg" class="product_image_is">
                     <p>Adidas</p>
                     <h4 class="cloth_is">Cartoon Shirt</h4>
@@ -423,18 +423,18 @@
                     </div>
                     <h4 class="price">$99</h4>
                     <div class="productcart-image"><i class="fa-solid fa-cart-shopping"></i></div>
-                </article> -->
+                </article>
 
             </div>
         </section>
 
 
         <div class="pagination">
-            <!-- <h4><i class="fa-solid fa-arrow-left arrowleft" id="previous"></i></h4>
+            <h4><i class="fa-solid fa-arrow-left arrowleft" id="previous"></i></h4>
             <h4 class="one">1</h4>
             <h4 class="two">2</h4>
             <h4 class="two">3</h4>
-            <h4><i class="fa-solid fa-arrow-right arrowright" id="next"></i></h4> -->
+            <h4><i class="fa-solid fa-arrow-right arrowright" id="next"></i></h4>
         </div>
 
 
@@ -510,31 +510,31 @@
     <script>
 
         // Shop    
-        const products = document.querySelectorAll('.product');
-        products.forEach((product) => {
-        product.addEventListener('click', function () {
-        const imageElement = product.querySelector('.product_image_is');
-        const clothElement = product.querySelector('.cloth_is');
-        const priceElement = product.querySelector('.price');
+        // const products = document.querySelectorAll('.product');
+        // products.forEach((product) => {
+        // product.addEventListener('click', function () {
+        // const imageElement = product.querySelector('.product_image_is');
+        // const clothElement = product.querySelector('.cloth_is');
+        // const priceElement = product.querySelector('.price');
 
-        let GetProductDetailes = JSON.parse(localStorage.getItem("ProductDetailes")) ?? [];  
-        if (imageElement && clothElement && priceElement) {
-            const imageSrc = imageElement.src;
-            const clothName = clothElement.textContent;
-            const price = priceElement.textContent;
+        // let GetProductDetailes = JSON.parse(localStorage.getItem("ProductDetailes")) ?? [];  
+        // if (imageElement && clothElement && priceElement) {
+        //     const imageSrc = imageElement.src;
+        //     const clothName = clothElement.textContent;
+        //     const price = priceElement.textContent;
 
-            GetProductDetailes.push({
-            image: imageSrc,
-            clothName: clothName,
-            price: price,
-            uniqueId: Math.floor(Math.random()*100)
-            });
-            localStorage.setItem("ProductDetailes",JSON.stringify(GetProductDetailes));
+        //     GetProductDetailes.push({
+        //     image: imageSrc,
+        //     clothName: clothName,
+        //     price: price,
+        //     uniqueId: Math.floor(Math.random()*100)
+        //     });
+        //     localStorage.setItem("ProductDetailes",JSON.stringify(GetProductDetailes));
 
-            window.location.href = "/Sproduct.html";
-        }
-        });
-        });
+        //     window.location.href = "/Sproduct.html";
+        // }
+        // });
+        // });
 
 
 
@@ -902,7 +902,6 @@
                 cart: `<i class="fa-solid fa-cart-shopping"></i>`    
             },
         ]
-        console.log(ProductsData);
 
     let categories = [...new Set(ProductsData.map((item)=>{
         return item
@@ -978,11 +977,33 @@
         displayItem(filterCategories)
     }
 
-    // if(btns[id] == 1){
-    //     btns.forEach(btns =>{
-    //         btns.name
-    //     })
-    // }
+
+
+    const products = document.querySelectorAll('.product');
+        products.forEach((product) => {
+        product.addEventListener('click', function () {
+        const imageElement = product.querySelector('.product_image_is');
+        const clothElement = product.querySelector('.cloth_is');
+        const priceElement = product.querySelector('.price');
+
+        let GetProductDetailes = JSON.parse(localStorage.getItem("ProductDetailes")) ?? [];  
+        if (imageElement && clothElement && priceElement) {
+            const imageSrc = imageElement.src;
+            const clothName = clothElement.textContent;
+            const price = priceElement.textContent;
+
+            GetProductDetailes.push({
+            image: imageSrc,
+            clothName: clothName,
+            price: price,
+            uniqueId: Math.floor(Math.random()*100)
+            });
+            localStorage.setItem("ProductDetailes",JSON.stringify(GetProductDetailes));
+
+            window.location.href = "/Sproduct.html";
+        }
+        });
+        });
 
     </script>
 </body>

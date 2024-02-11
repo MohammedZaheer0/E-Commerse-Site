@@ -11,6 +11,64 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>UrbanoGrove Website</title>
+    <style>
+        .outermaindiv{
+            width: 80%;
+            margin: 0 auto 5rem;
+        }
+        .blogdiv{
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 1rem auto;
+        }
+        .blogdiv h2{
+            margin: 1rem 0;
+        }
+        .blogdiv img,.blogdiv h2,.blogdiv p{
+            width: 80%;
+            text-align: justify;
+            line-height: 1.5;
+        }
+        @media only screen and (max-width:500px){
+        .outermaindiv{
+            width: 90%;
+        }
+        .blogdiv{
+            width: 100%;
+            margin: 1rem auto;
+        }
+        .blogdiv h2{
+            font-size: 1rem;
+            margin: 1rem 0;
+        }
+        .blogdiv img,.blogdiv h2,.blogdiv p{
+            width: 80%;
+            text-align: justify;
+            line-height: 1.5;
+        }
+        }
+        @media only screen and (min-width:501px) and (max-width:1024px){
+        .outermaindiv{
+            width: 80%;
+        }
+        .blogdiv{
+            width: 80%;
+            margin: 1rem auto;
+        }
+        .blogdiv h2{
+            font-size: 1.5rem;
+            margin: 1rem 0;
+        }
+        .blogdiv img,.blogdiv h2,.blogdiv p{
+            width: 80%;
+            text-align: justify;
+            line-height: 1.5;
+        }
+        }
+    </style>
 </head>
 <body>
 
@@ -39,87 +97,15 @@
         </nav>
 
 
-
-        <section class="main-new about-main">
-                <h1 class="onallproducts">#Know Us</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+        <section class="outermaindiv">
+            <div class="blogdiv">
+                <img src="" class="blogImg">
+                <h2 class="blogTitle"></h2>
+                <p class="blogPara"></p>
+            </div>    
         </section>
-
-
-
-       <section class="about-image-content">
-        <div class="about-image">
-            <img src="images/a6.jpg">
-        </div>
-        <div class="about-content">
-           <h2>Who We Are?</h2>
-           <p>Welcome to <span class="unique">UrbanoGrove E-Commerse Site </span>, where passion meets innovation in the world of UrbanoGrove Industry. We're more than just an online store; we're a team of dedicated individuals committed to providing you with exceptional products and a unique shopping experience.</p>
-           <p>Our Story
-            <span class="unique">Established in 2024</span>, UrbanoGrove was born out of a shared love for Amazing Products. Our <span class="unique">founder, Zaheer,</span> envisioned a place where customers could discover handpicked products that blend quality, style, and functionality.</p>
-            <p>Mission and Values
-                At UrbanoGrove, our mission is to Spread it across the india as well as world. We believe in <span class="unique">dedication,passion and customer support</span>. These values shape every decision we make, ensuring that we deliver products that align with your needs and values.</p>
-            <p>Meet the Team
-                Behind UrbanoGrove is a passionate team of individuals who bring diverse skills and experiences to the table. We're not just a business; we're a community of enthusiasts who share a common love for Cloths Industry.
-                
-                <span class="unique">Founder: Mohammed From Nalgonda, Telangana 508001;
-                
-                    CEO :  Zaheer;</span>
-            </p>    
-            <p>Our Commitment
-                We are committed to Online Market, Offline Stores. This commitment extends beyond our products to our impact on the environment and community.
-                
-                Join Us on Our Journey
-                As we continue to grow and evolve, we invite you to join us on this exciting journey. Explore our curated collection, discover the stories behind each product.
-                </p>
-           <marquee width="100%">Thank you for choosing UrbanoGrove , and become part of the UrbanoGrove community We look forward to serving you!</marquee>
-
-        </div>
-       </section>
-
-
-       <section class="about-video">
-        <h1>Download Our <a href="#">App</a></h1>
-        <video muted loop autoplay src="images/1.mp4">
-        </video>
-       </section>
-
-
-       <section class="details">
-        <div class="details-box">
-            <img src="images/f1.png">
-            <h4>Free Shipping</h4>
-        </div>
-
-        <div class="details-box">
-            <img src="images/f2.png">
-            <h4>Online Order</h4>
-        </div>
-
-        <div class="details-box">
-            <img src="images/f3.png">
-            <h4>Saves Money</h4>
-        </div>
-
-        <div class="details-box">
-            <img src="images/f4.png">
-            <h4>Promotions</h4>
-        </div>
-
-
-        <div class="details-box">
-            <img src="images/f5.png">
-            <h4>Happy Sale</h4>
-        </div>
-
-
-        <div class="details-box">
-            <img src="images/f6.png">
-            <h4>F24/7 Support</h4>
-        </div>
-    </section>
-
-
-
+    
+    
         <section class="newsletters">
             <div class="newslettersleft">
                 <h3>Sign Up For Newsletters</h3>
@@ -188,5 +174,28 @@
     </div>
     
     <script src="main.js"></script>
+    <script>
+
+    let GetBlog = JSON.parse(localStorage.getItem("SetBlog")) ?? [];        
+    
+    let OuterMainDiv = document.querySelector(".outermaindiv");
+    let BlogMainDiv = document.createElement("div");
+    BlogMainDiv.classList.add("blogdiv");
+    GetBlog.forEach(blog => {
+        BlogMainDiv.innerHTML = `
+                <div class="blogdiv">
+                <img src=${blog.bImage} class="blogImg">
+                <h2 class="blogTitle">${blog.bTitle}</h2>
+                <p class="blogPara">${blog.bPara}</p>
+                </div> `;
+    OuterMainDiv.appendChild(BlogMainDiv);        
+    });
+
+
+    
+
+    
+    </script>
+
 </body>
 </html>
