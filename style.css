@@ -11,7 +11,114 @@
     --color-white:#fff;
     --color-black:#000;
 }
+#main{
+    position:relative;
+    transition: all 0.5s;
+}
+/* PopUpWindow */
+.popupwindow{
+    /* display: none; */
+    position: fixed;
+    top: 30%;
+    left:50%;
+    background: transparent;
+    width: 30%;
+    height: 35vh;
+    transition: all 0.5s;
+}
+.PopOuterDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    padding: 2rem 3rem;
+    background-color: rgb(201, 248, 201);
+    position: absolute;
+    border-radius: 10px;
+}
+.popupwindow h2{
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    color: var(--color-primary);
+}
+.popupwindow p{
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    color: rgb(163, 45, 2);
+    font-weight: bold;
+}
+.PopOuterDiv .popx{
+    position: absolute;
+    right: 3%;
+    top: 5%;
+    font-size: 1.2rem;
+}
 
+@media only screen and (max-width:425px){
+    .popupwindow{
+        top: 30%;
+        left:25%;
+        width: 65%;
+        height: 30vh;
+    }
+    .PopOuterDiv{
+        padding: 1rem;
+    }
+    .popupwindow h2{
+        font-size: 0.8rem;
+    }
+    .popupwindow p{
+        font-size: 0.7rem;
+    }
+    .PopOuterDiv .popx{
+        font-size: 0.9rem;
+    }
+}
+@media only screen and (min-width:426px) and (max-width:768px){
+    .popupwindow{
+        top: 30%;
+        left:35%;
+        width: 45%;
+        height: 35vh;
+    }
+    .PopOuterDiv{
+        padding: 1.1rem;
+    }
+    .popupwindow h2{
+        font-size: 0.9rem;
+    }
+    .popupwindow p{
+        font-size: 0.8rem;
+    }
+    .PopOuterDiv .popx{
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width:769px) and (max-width:1200px){
+    .popupwindow{
+        top: 30%;
+        left:30%;
+        width: 35%;
+        height: 40vh;
+    }
+    .PopOuterDiv{
+        padding: 1.5rem;
+    }
+    .popupwindow h2{
+        font-size: 1.1rem;
+    }
+    .popupwindow p{
+        font-size: 1rem;
+    }
+    .PopOuterDiv .popx{
+        font-size: 1rem;
+    }
+}
+
+
+/* Navbar */
 .navbar{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -203,7 +310,8 @@ ul li a:hover, ul li a::after{
     width: 100%;
     border-radius: 1rem;
 }
-.product_cart p,h4,.five-star{
+.product_cart p,
+.product_cart h4, .product_cart .five-star{
     text-align: left;
     margin: 0.5rem 0;
     padding-left: 10px;
@@ -444,6 +552,9 @@ footer p span{
     font-weight: bold;
     color: #000;
     font-size: 1rem;
+}
+footer  ,.footercontact h4, .footerabout h4, .footermyaccount h4,.footerinstallapp h4{
+    margin: 0.5rem 0;
 }
 footer  ,.footercontact, .follow{
     margin:1.3rem 0;
@@ -1099,7 +1210,6 @@ footer .footerinstallapp .appgoogle img{
 
 
  /* Shop */
-
  .main-new{
     background-image: url("images/b1.jpg");
     background-position: center;
@@ -1113,7 +1223,6 @@ footer .footerinstallapp .appgoogle img{
     justify-content: center;
     align-items: center;
  }
-
  .main-new h1{
     font-size: 2rem;
     margin-bottom: 10px;
@@ -1139,6 +1248,10 @@ footer .footerinstallapp .appgoogle img{
     cursor: pointer;
     font-size: 1rem;
     border: none;
+ }
+ .pagination h4 i{
+    padding: 0.6rem 0.4rem;
+    text-align: center;
  }
  .pagination .fil-p:hover{
     background-color: rgb(2, 2, 2);
@@ -1395,8 +1508,8 @@ footer .footerinstallapp .appgoogle img{
 
 .about-image-content{
     display: grid;
-    grid-template-columns: 40% 50%;
-    gap: 2rem;
+    grid-template-columns: 40% 60%;
+    gap: 1.5rem;
     width: 80%;
     margin: 4rem auto;
     justify-content: center;
@@ -2093,3 +2206,4 @@ marquee{
 
     
 }
+

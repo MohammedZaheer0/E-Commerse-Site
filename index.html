@@ -14,7 +14,9 @@
 </head>
 <body>
 
+    
     <div id="main">
+        <div class="popupwindow"></div>
         <!-- Navbar -->
         <nav class="navbar">
 
@@ -469,6 +471,41 @@ const products = document.querySelectorAll('.product');
         window.location.href = "/shop.html";
         });
         });
+
+
+
+    
+    let SetTime =  setTimeout(()=>{
+        let MainDiv = document.getElementById("main");        
+        let PopUpWindow = document.querySelector(".popupwindow");
+        MainDiv.appendChild(PopUpWindow);
+
+        let PopOuterDiv = document.createElement("div");
+        PopOuterDiv.classList.add("PopOuterDiv")
+        PopUpWindow.appendChild(PopOuterDiv);
+
+        let Xmark = `<i class="fa-solid fa-xmark popx"></i>`;
+        PopOuterDiv.insertAdjacentHTML("afterbegin",Xmark);
+
+        let Heading2 = document.createElement("h2");
+        Heading2.classList.add("PopUpH2");
+        Heading2.textContent = "Use The Coupon Code For 30% Off On Your First Order";
+
+        let Ptag = document.createElement("p");
+        Ptag.classList.add("PopUpPtag");
+        Ptag.textContent = "#Zaheer30%";
+
+
+        PopOuterDiv.appendChild(Heading2);
+        PopOuterDiv.appendChild(Ptag);
+
+        let XPop = document.querySelector(".popx");
+        XPop.addEventListener("click",()=>{
+            PopUpWindow.style.display = "none";
+        })
+    },7000);
+    
+    clearTimeout(SetTime);
 
     </script>
 </body>
