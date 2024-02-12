@@ -159,82 +159,80 @@
     <script src="main.js"></script>
 
 
-
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    let TotalPrice = 0;
 
-        let TotalPrice = 0;
-        let CartProductData = () => {
-            let ProductDetailes = JSON.parse(localStorage.getItem("ProductDetailes")) ?? [];
-            let TableBody = document.getElementById("tbody");
+    let CartProductData = () => {
+        let ProductDetailes = JSON.parse(localStorage.getItem("ProductDetailes")) ?? [];
+        let TableBody = document.getElementById("tbody");
 
-            ProductDetailes.forEach((Element, index) => {
-                let CartData = document.createElement("tr");
-                let ProductPrice = parseFloat(Element.price.replace('$', '')) || 0;
+    ProductDetailes.forEach((Element, index) => {
+    let CartData = document.createElement("tr");
+    let ProductPrice = parseFloat(Element.price.replace('$', '')) || 0;
 
-                if(!isNaN(ProductPrice)){
-                let Quantity = 0;
-                CartData.innerHTML = `<tr class="tableRow">
-                                        <td class="delete"><i class="fa-solid fa-circle-xmark"></i></td>
-                                        <td><img src=${Element.image} class="MainImg"></td>
-                                        <td class="clothName">${Element.clothName}</td>
-                                        <td class="clothprice">${Element.price}</td>
-                                        <td id="inline">
-                                            <button class="decrease" data-index="${index}">-</button>
-                                            <p class="number">1</p>
-                                            <button class="increase" data-index="${index}">+</button>
-                                        </td>
-                                    </tr>`;
+    if (!isNaN(ProductPrice)) {
+        let Quantity = Element.quantity || 1;
+        CartData.innerHTML = `<tr class="tableRow">
+                                <td class="delete"><i class="fa-solid fa-circle-xmark"></i></td>
+                                <td><img src=${Element.image} class="MainImg"></td>
+                                <td class="clothName">${Element.clothName}</td>
+                                <td class="clothprice">${Element.price}</td>
+                                <td id="inline">
+                                    <button class="decrease" data-index="${index}">-</button>
+                                    <p class="number">${Quantity}</p>
+                                    <button class="increase" data-index="${index}">+</button>
+                                </td>
+                            </tr>`;
 
-                TableBody.appendChild(CartData);
+        TableBody.appendChild(CartData);
 
+        // Update TotalPrice initially
+        TotalPrice += ProductPrice * Quantity;
+        updateProductDetails(CartData, Quantity, TotalPrice);
 
-                CartData.querySelector(".increase").addEventListener("click", function () {
-                    Quantity += 1;
-                    TotalPrice += ProductPrice;
-                    updateProductDetails(CartData, Quantity, TotalPrice);
-                });
-                CartData.querySelector(".decrease").addEventListener("click", function () {
-                    if (Quantity > 0) {
-                        Quantity -= 1;
-                        TotalPrice -= ProductPrice;
-                        updateProductDetails(CartData, Quantity, TotalPrice);
-                    }
-                });
-            }else{
-                console.log(`Invalid price for product at index ${index}`);
+        CartData.querySelector(".increase").addEventListener("click", function () {
+            Quantity += 1;
+            TotalPrice += ProductPrice;
+            updateProductDetails(CartData, Quantity, TotalPrice);
+        });
+        CartData.querySelector(".decrease").addEventListener("click", function () {
+            if (Quantity > 0) {
+                Quantity -= 1;
+                TotalPrice -= ProductPrice;
+                updateProductDetails(CartData, Quantity, TotalPrice);
             }
-            });
+        });
+    } else {
+        console.log(`Invalid price for product at index ${index}`);
+    }
+});
 
-            function updateProductDetails(CartData, Quantity, TotalPrice) {
+
+        function updateProductDetails(CartData, Quantity, TotalPrice) {
             CartData.querySelector(".number").textContent = Quantity;
 
             let TotalPriceElement = document.querySelectorAll(".Totalclothprice");
             TotalPriceElement.forEach(element => {
                 element.textContent = `$ ${parseFloat(TotalPrice).toFixed(2)}`;
             });
-
-            
         }
 
         let deleteIcons = document.querySelectorAll(".delete");
         deleteIcons.forEach((deleteIcon, index) => {
-        deleteIcon.addEventListener("click", function() {
-            if(confirm("Are You Sure Wan't To Delete Cart?")== true){
-                let productDetails = JSON.parse(localStorage.getItem("ProductDetailes")) || [];
-                productDetails.splice(index, 1);
-                localStorage.setItem("ProductDetailes", JSON.stringify(productDetails));
-                window.location.reload();
-            }
+            deleteIcon.addEventListener("click", function () {
+                if (confirm("Are You Sure Wan't To Delete Cart?") == true) {
+                    let productDetails = JSON.parse(localStorage.getItem("ProductDetailes")) || [];
+                    productDetails.splice(index, 1);
+                    localStorage.setItem("ProductDetailes", JSON.stringify(productDetails));
+                    window.location.reload();
+                }
+            });
         });
-        });
-        
+    }
 
-        }
-        CartProductData();
-
-
-
-
+    CartProductData();
+});
 
     </script>
 </body>
