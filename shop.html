@@ -979,31 +979,63 @@
 
 
 
-    const products = document.querySelectorAll('.product');
-        products.forEach((product) => {
-        product.addEventListener('click', function () {
-        const imageElement = product.querySelector('.product_image_is');
-        const clothElement = product.querySelector('.cloth_is');
-        const priceElement = product.querySelector('.price');
+    // const products = document.querySelectorAll('.product');
+    //     products.forEach((product) => {
+    //     product.addEventListener('click', function () {
+    //     const imageElement = product.querySelector('.product_image_is');
+    //     const clothElement = product.querySelector('.cloth_is');
+    //     const priceElement = product.querySelector('.price');
 
-        let GetProductDetailes = JSON.parse(localStorage.getItem("ProductDetailes")) ?? [];  
+    //     let GetProductDetailes = JSON.parse(localStorage.getItem("ProductDetailes")) ?? [];  
+    //     if (imageElement && clothElement && priceElement) {
+    //         const imageSrc = imageElement.src;
+    //         const clothName = clothElement.textContent;
+    //         const price = priceElement.textContent;
+
+    //         GetProductDetailes.push({
+    //         image: imageSrc,
+    //         clothName: clothName,
+    //         price: price,
+    //         uniqueId: Math.floor(Math.random()*100)
+    //         });
+    //         localStorage.setItem("ProductDetailes",JSON.stringify(GetProductDetailes));
+
+    //         window.location.href = "/Sproduct.html";
+    //     }
+    //     });
+    //     });
+
+
+
+    document.querySelector('.product_cart').addEventListener('click', function (event) {
+    const target = event.target;
+
+    // Check if the clicked element has the class "product"
+    if (target.classList.contains('product')) {
+        const imageElement = target.querySelector('.product_image_is');
+        const clothElement = target.querySelector('.cloth_is');
+        const priceElement = target.querySelector('.price');
+
+        let GetProductDetailes = JSON.parse(localStorage.getItem("ProductDetailes")) || [];
+        
         if (imageElement && clothElement && priceElement) {
             const imageSrc = imageElement.src;
             const clothName = clothElement.textContent;
             const price = priceElement.textContent;
 
             GetProductDetailes.push({
-            image: imageSrc,
-            clothName: clothName,
-            price: price,
-            uniqueId: Math.floor(Math.random()*100)
+                image: imageSrc,
+                clothName: clothName,
+                price: price,
+                uniqueId: Math.floor(Math.random() * 100)
             });
-            localStorage.setItem("ProductDetailes",JSON.stringify(GetProductDetailes));
+            localStorage.setItem("ProductDetailes", JSON.stringify(GetProductDetailes));
 
             window.location.href = "/Sproduct.html";
         }
-        });
-        });
+    }
+});
+
 
     </script>
 </body>
