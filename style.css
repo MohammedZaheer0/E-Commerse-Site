@@ -1051,7 +1051,7 @@ footer .footerinstallapp .appgoogle img{
     
      /* Main */
      .main-content{
-         min-height:65vh;
+         min-height:60vh;
      }
      .main-content-left h4,p{
          font-size: 0.8rem;
