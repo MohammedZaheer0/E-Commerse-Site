@@ -559,14 +559,21 @@ footer  ,.footercontact h4, .footerabout h4, .footermyaccount h4,.footerinstalla
 footer  ,.footercontact, .follow{
     margin:1.3rem 0;
 }
-.footercontact .followus i{
+.footercontact .followus a{
     margin-right: 5px;
     cursor: pointer;
+    text-decoration: none;
+    color: #000;
+    font-size: 1.3rem;
+}
+.footercontact .followus a:hover{
+    color: var(--color-primary);
 }
 footer .footerabout a{
     text-decoration: none;
     color: #000;
 }
+
 footer .footerinstallapp .appgoogle{
     display: flex;
     gap: 1rem;
