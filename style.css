@@ -1239,40 +1239,43 @@ footer .footerinstallapp .appgoogle img{
     text-align: center;
     color: #fff;
  }
- .pagination{
+ .listPage{
     width: 100%;
     height: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
  }
- .pagination .fil-p{
+ .listPage li{
+    list-style-type: none;
     background: var(--color-primary);
     padding: 0.6rem 1rem;
     margin: 0px 4px;
     color: var(--color-white);
     border-radius: 4px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.8rem;
     border: none;
  }
- .pagination h4 i{
+ .listPage li i{
     padding: 0.6rem 0.4rem;
     text-align: center;
  }
- .pagination .fil-p:hover{
+ .listPage li:hover{
     background-color: rgb(2, 2, 2);
  }
- .pagination .fil-p:nth-child(1),
- .pagination .fil-p:nth-child(5){
-    /* display: none; */
-    padding:0 0.5rem 0 0;
+ .listPage .active{
+    background-color: rgb(2, 2, 2);
+ }
+ /* .listPage li:nth-child(1),
+ .listPage li:nth-child(5){
+    padding:0 0.4rem 0 0.2rem;
     font-size: 1.2rem;
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
- }
+ } */
 
 
  /* Single Product Page */
@@ -1378,11 +1381,15 @@ footer .footerinstallapp .appgoogle img{
     background-repeat: no-repeat;
     margin-bottom: 2rem;
 }
-
+.blog-image-content{
+    min-height: 50vh;
+    width: 80%;
+    padding: 0rem 1rem;
+}
 .blog-box{
     width: 80%;
-    min-height: 50vh;
-    margin: 5rem auto;
+    min-height: 100%;
+    margin: 4rem auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
@@ -1392,8 +1399,9 @@ footer .footerinstallapp .appgoogle img{
     position: relative;
 }
 .blog-image-content .blog-image img{
-    height: 50%;
-    width: 60%;
+    height: 45%;
+    width: 40%;
+    margin-bottom: 1rem;
 }
 .blog-content{
     padding-right: 1rem;
@@ -1456,6 +1464,7 @@ footer .footerinstallapp .appgoogle img{
 /* Blog Media Queries */
 @media only screen and (max-width:600px){
     .blog-box{
+        width: 100%;
         margin: 3rem auto;
         display: grid;
         grid-template-columns: 1fr;
@@ -1463,13 +1472,19 @@ footer .footerinstallapp .appgoogle img{
         padding: 1rem;
     }
     .blog-image-content .blog-image img{
-        height: 100%;
-        width: 100%;
+        height: 70%;
+        width: 70%;
+    }
+    .blog-content h3{
+        font-size: 0.9rem;
+    }
+    .blog-content h5{
+        font-size: 0.7rem;
     }
     .blog-content h5::after{
         width: 17%;
         top: 50%;
-        left: 70%;
+        left: 80%;
     }
     .date{
         top: -5%;
@@ -1478,6 +1493,7 @@ footer .footerinstallapp .appgoogle img{
 
 @media only screen and (min-width:601px) and (max-width:1024px){
     .blog-box{
+        width: 90%;
         margin: 5rem auto;
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -1485,13 +1501,13 @@ footer .footerinstallapp .appgoogle img{
         padding: 2rem;
     }
     .blog-image-content .blog-image img{
-        height: 100%;
-        width: 100%;
+        height: 55%;
+        width: 50%;
     }
     .blog-content h5::after{
         width: 17%;
         top: 50%;
-        left: 80%;
+        left: 50%;
     }
     .date{
         display: none;
