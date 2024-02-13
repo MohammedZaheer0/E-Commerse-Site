@@ -1866,11 +1866,11 @@ marquee{
     justify-content: center;
     align-items: center;
     margin: 3rem auto;
-    font-size: 1.5rem;
     text-align: center;
 }
 .thankyou-box h1{
     margin-bottom: 1rem;
+    font-size: 1.7rem;
 }
 .backtohome button{
     border: none;
@@ -1889,6 +1889,49 @@ marquee{
     color: #000;
     background: #b66802c5;
 }
+@media only screen and (max-width:425px){
+    .thankyou-box{
+        width: 80%;
+        height: 35vh;
+        text-align: center;
+    }
+    .thankyou-box h1{
+        font-size: 0.9rem;
+    }
+    .backtohome button a{
+        padding: 0.8rem 1.5rem;
+        font-size: 0.7rem;
+    }
+}
+@media only screen and (min-width:426px) and (max-width:768px){
+    .thankyou-box{
+        width: 70%;
+        height: 30vh;
+        text-align: center;
+    }
+    .thankyou-box h1{
+        font-size: 1.1rem;
+    }
+    .backtohome button a{
+        padding: 0.9rem 1.8rem;
+        font-size: 0.8rem;
+    }
+}
+@media only screen and (min-width:769px) and (max-width:1024px){
+    .thankyou-box{
+        width: 70%;
+        height: 35vh;
+        text-align: center;
+    }
+    .thankyou-box h1{
+        font-size: 1.5rem;
+    }
+    .backtohome button a{
+        padding: 1rem 1.9rem;
+        font-size: 1rem;
+    }
+}
+
 
 /* Cart Page */
 .cart-main{
