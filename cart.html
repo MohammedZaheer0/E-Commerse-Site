@@ -205,9 +205,15 @@
             }
         });
 
+    } else {
+        console.log(`Invalid price for product at index ${index}`);
+    }
+});
 
-        // Coupons
-        let CouponButton = document.querySelector(".couponbtn").addEventListener("click",(e)=>{
+
+
+// Coupons
+let CouponButton = document.querySelector(".couponbtn").addEventListener("click",(e)=>{
             e.preventDefault();
             let Coupon = document.getElementById("coupon");
             if(Coupon.value == "#Zaheer30%"){
@@ -223,12 +229,9 @@
             TotalPriceElement.forEach(element => {
             element.textContent = `$ ${parseFloat(TotalPrice).toFixed(2)}`;
     });
-        })
+        });
 
-    } else {
-        console.log(`Invalid price for product at index ${index}`);
-    }
-});
+        
 
 
         function updateProductDetails(CartData, Quantity, TotalPrice) {

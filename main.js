@@ -39,10 +39,15 @@ SPI.forEach(Img =>{
 
 
 let FormBtn = document.querySelector(".submit");
-    FormBtn.addEventListener("click",()=>{
-        setTimeout(() => {
-        let Inputs = document.querySelector(".emailid").value = ""; 
-        },400);
+    FormBtn.addEventListener("click",(e)=>{
+      e.preventDefault();
+      setTimeout(() => {
+        let Inputs = document.querySelector(".emailid"); 
+        if(Inputs && Inputs.value.trim() !== ""){
+          window.location.assign("/thankyou.html");
+          Inputs.value = "";
+        }
+        },300);
     })
 
 

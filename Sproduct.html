@@ -227,31 +227,31 @@
         let ProductDetailes = JSON.parse(localStorage.getItem("ProductDetailes")) ?? [];
 
         ProductDetailes.forEach((Element, i) => {
-    let MainImageElement = document.querySelector(".MainImg");
-    let clothNameElement = document.querySelector(".clothName");
-    let clothPriceElement = document.querySelector(".clothprice");
+        let MainImageElement = document.querySelector(".MainImg");
+        let clothNameElement = document.querySelector(".clothName");
+        let clothPriceElement = document.querySelector(".clothprice");
 
-    MainImageElement.src = Element.image;
-    clothNameElement.textContent = Element.clothName;
+        MainImageElement.src = Element.image;
+        clothNameElement.textContent = Element.clothName;
 
-    let priceWithoutDollarSign = Element.price.replace('$', '');
-        let parsedPrice = parseFloat(priceWithoutDollarSign);
+        let priceWithoutDollarSign = Element.price.replace('$', '');
+            let parsedPrice = parseFloat(priceWithoutDollarSign);
 
-        if (!isNaN(parsedPrice)) {
-            clothPriceElement.textContent = `$${parsedPrice.toFixed(2)}`;
-        } else {
-            console.error(`Invalid price for product at index ${i}`);
-        }
-});
-        }
-        ProductData();
+            if (!isNaN(parsedPrice)) {
+                clothPriceElement.textContent = `$${parsedPrice.toFixed(2)}`;
+            } else {
+                console.error(`Invalid price for product at index ${i}`);
+            }
+    });
+            }
+            ProductData();
 
 
-        let AddToCart = document.querySelector(".addToCart");
-        AddToCart.addEventListener("click",()=>{
-        window.location.href = "/cart.html";
-            // ProductData();
-        });
+            let AddToCart = document.querySelector(".addToCart");
+            AddToCart.addEventListener("click",()=>{
+            window.location.href = "/cart.html";
+                // ProductData();
+            });
 
     </script>
 
