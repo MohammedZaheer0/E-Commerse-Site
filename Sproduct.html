@@ -247,11 +247,26 @@
             ProductData();
 
 
+            // let AddToCart = document.querySelector(".addToCart");
+            // AddToCart.addEventListener("click",()=>{
+            // window.location.href = "/cart.html";
+            //     // ProductData();
+            // });
+
+
             let AddToCart = document.querySelector(".addToCart");
             AddToCart.addEventListener("click",()=>{
-            window.location.href = "/cart.html";
-                // ProductData();
+
+                let StoreSignUp = JSON.parse(localStorage.getItem("StoreSignUp")) || [];
+                let storedPhone = StoreSignUp[0] ? StoreSignUp[0].phone : null;
+
+                if(storedPhone){
+                    window.location.href = "/cart.html";
+                } else {
+                    window.location.href = "/login.html";
+                }
             });
+
 
     </script>
 

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/eef519840c.js" crossorigin="anonymous"></script>
+    <!-- Font Family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/favicon-32x32.png">
+    <title>UrbanGrove Login</title>
+    <style>
+        #loginform{
+            height: 100vh;
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            align-items: center;
+            justify-content: center;
+        }
+        #loginform #offer{
+            width: 100%;
+            height: 35%;
+            background: lightcyan;
+        }
+        #loginform #offer img{
+            width: 80%;
+            height: 90%;
+            display: block;
+            margin: 1rem auto;
+        }
+        #form{
+            height: 45vh;
+            width: 100%;
+            background-color: lightcyan;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding:0 1.2rem ;
+        }
+        #form label{
+            font-size: 1.5rem;
+            margin: 0.5rem 0 0.3rem 0;
+            font-weight: bold;
+        }
+        #form #input{
+            border: 1px solid #000;
+            background: transparent;
+            outline: none;
+            width: 90%;
+            margin: 1rem 0;
+            padding: 0.6rem 0 0.6rem 1rem;
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+               -webkit-appearance: none;
+                margin: 0;
+        }
+        #form small{
+            font-size: 0.8rem;
+            margin: 0.2rem 0 1rem;
+        }
+        #form small a{
+            text-decoration: none;
+            color: hotpink;
+            font-weight: bold;
+        }
+        #form #continue{
+            padding: 0.6rem 3rem;
+            margin: 0.2rem 0 1rem;
+            background: rgb(245, 34, 140);
+            border: none;
+            color: #fff;
+            cursor: pointer;
+        }
+
+
+        @media only screen and (max-width:425px){
+            #loginform{
+            width: 90%;
+        }
+        #loginform #offer{
+            height: 35%;
+            padding-bottom: 1rem;
+        }
+        #loginform #offer img{
+            width: 70%;
+            height: 100%;
+        }
+        #form{
+            height: 55vh;
+        }
+        #form label{
+            font-size: 1.2rem;
+        }
+        #form #input{
+            font-size: 0.8rem;
+        }
+        #form small{
+            font-size: 0.8rem;
+            margin: 0.2rem 0 1rem;
+        }
+        }
+
+        @media only screen and (min-width:426px) and (max-width:768px){
+            #loginform{
+            width: 60%;
+        }
+        #loginform #offer{
+            height: 35%;
+            padding-bottom: 1rem;
+        }
+        #loginform #offer img{
+            width: 60%;
+            height: 100%;
+        }
+        #form{
+            padding-top: 2rem;
+            height: 55vh;
+        }
+        #form label{
+            font-size: 1.3rem;
+        }
+        #form #input{
+            font-size: 0.9rem;
+        }
+        #form small{
+            font-size: 0.8rem;
+            margin: 0.2rem 0 1rem;
+        }
+        }
+
+
+        @media only screen and (min-width:769px) and (max-width:1024px){
+            #loginform{
+            width: 40%;
+        }
+        #loginform #offer{
+            height: 35%;
+            padding-bottom: 1rem;
+        }
+        #loginform #offer img{
+            width: 60%;
+            height: 100%;
+        }
+        #form{
+            padding-top: 2rem;
+            height: 55vh;
+        }
+        #form label{
+            font-size: 1.3rem;
+        }
+        #form #input{
+            font-size: 0.9rem;
+        }
+        #form small{
+            font-size: 0.8rem;
+            margin: 0.2rem 0 1rem;
+        }
+        }
+    </style>
+</head>
+<body>
+
+        <form id="loginform">
+            <div id="offer">
+                <img src="images/specialoffer1.png">
+            </div>
+            <label id="form">
+                <label for="firstname">Login/ <a href="/SignUp.html">SignUp</a></label>
+                <input type="number" id="input" name="phone" placeholder="+91  | Mobile Number" required>
+                <span class="error"></span>
+                <small>By continuing, I agree to the <a href="#">Terms of Use</a> & <a href="#">Privacy Policy</a></small>
+                <input type="submit" value="CONTINUE" name="submit" id="continue">
+                <small>Have trouble logging in? <a href="/get_help.html">Get help</a></small>
+            </label>
+        </form>
+    
+
+    
+    <script src="main.js"></script>
+
+    <script>
+    let Button = document.getElementById('continue').addEventListener("click",function(e){
+            e.preventDefault();
+            let InputField = document.getElementById("input");
+            let Span = document.querySelector(".error");
+            Span.setAttribute("style","color:red;margin-bottom:0.7rem;font-size:0.8rem;");
+            
+            if (InputField.value.length < 0) {
+                Span.textContent = "Please Enter Your Number";
+                InputField.value = "";
+            } else if (InputField.value.length !== 10) {
+                Span.textContent = "Number Must Be 10 Digits";
+                setTimeout(() => {
+                    Span.style.display = "none";
+                },2000);
+                InputField.value = "";
+            } else {
+                // Corrected logic for retrieving and checking the stored phone number
+                let StoreSignUp = JSON.parse(localStorage.getItem("StoreSignUp")) || [];
+                let storedPhone = StoreSignUp[0] ? StoreSignUp[0].phone : null;
+
+                if(storedPhone === InputField.value){
+                    window.location.href = "/index.html";
+                } else {
+                    alert("Not Matched Please SignUp");
+                    setTimeout(() => {
+                        InputField.value = ""; 
+                    }, 100);
+                }
+            }
+        });  
+    </script>
+</body>
+</html>
