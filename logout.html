@@ -1,0 +1,9 @@
+<script>
+
+    let LoginData = JSON.parse(localStorage.getItem("LoginData")) || [];
+    localStorage.removeItem("LoginData");
+    localStorage.setItem("LoginData",JSON.stringify(LoginData));
+    window.location.href = "/login.html";
+            
+
+</script>

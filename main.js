@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
 
 window.addEventListener("scroll",()=>{
-  document.querySelector(".navbar").classList.toggle
-  ('window-scroll', window.scrollY >0)
+  document.querySelector(".navbar").classList.toggle('window-scroll', window.scrollY >0);
 });
 
 
@@ -38,17 +37,21 @@ SPI.forEach(Img =>{
 });
 
 
+// Email In All Fiels
 let FormBtn = document.querySelector(".submit");
-    FormBtn.addEventListener("click",(e)=>{
+  let Inputs = document.querySelector(".emailid");
+
+  if (FormBtn && Inputs) {
+    FormBtn.addEventListener("click", (e) => {
       e.preventDefault();
       setTimeout(() => {
-        let Inputs = document.querySelector(".emailid"); 
-        if(Inputs && Inputs.value.trim() !== ""){
+        if (Inputs.value.trim() !== "") {
           window.location.assign("/thankyou.html");
           Inputs.value = "";
         }
-        },300);
-    })
+      }, 300);
+    });
+  }
 
 
 

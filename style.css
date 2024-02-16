@@ -15,6 +15,10 @@
     position:relative;
     transition: all 0.5s;
 }
+html{
+    scrollbar-width: thin;
+}
+
 /* PopUpWindow */
 .popupwindow{
     /* display: none; */
@@ -152,6 +156,7 @@
 }
 .navright ul li{
     list-style-type: none;
+    position: relative;
 }
 .navright ul li a{
     text-decoration: none;
@@ -163,6 +168,27 @@ ul li a:hover, ul li a::after{
     text-decoration: underline var(--color-primary);
     text-underline-position: under;
     color: var(--color-primary);
+}
+#select{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    top: 30px;
+    visibility: hidden;
+    z-index: 1;
+}
+li:hover ul#select{
+    opacity: 1;
+    visibility: visible;
+    background-color:rgb(185, 236, 238);
+    padding: 2rem 0;
+    font-size: 1.1rem;
+}
+#select li{
+    margin:0.5rem;
 }
 
 /* Main */
@@ -548,6 +574,10 @@ footer  p{
     font-size: 0.9rem;
     margin-bottom: 10px;
 }
+footer p:hover,
+footer p:hover a{
+    color: var(--color-primary);
+}
 footer p span{
     font-weight: bold;
     color: #000;
@@ -555,6 +585,10 @@ footer p span{
 }
 footer  ,.footercontact h4, .footerabout h4, .footermyaccount h4,.footerinstallapp h4{
     margin: 0.5rem 0;
+}
+.footermyaccount p a{
+    text-decoration: none;
+    color: #000;
 }
 footer  ,.footercontact, .follow{
     margin:1.3rem 0;
@@ -1048,6 +1082,23 @@ footer .footerinstallapp .appgoogle img{
         top: 4%;
         font-size: 1.3rem;
     }
+    #select{
+        top: 50px;
+        width: fit-content;
+        height: fit-content;
+    }
+    li:hover ul#select{
+        left: 0;
+        font-size: 0.9rem;
+        top: 100%;
+        background-color:rgb(179, 175, 236);
+        padding: 0;
+    }
+    #select li{
+        margin:0.5rem;
+    }
+
+
     
      /* Main */
      .main-content{
