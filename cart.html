@@ -168,6 +168,18 @@
 
 
     <script>
+
+
+    let isLoggedIn = localStorage.getItem("LoginData") !== null;
+
+    // If not logged in, redirect to login page
+    setTimeout(() => {
+        if (!isLoggedIn) {
+        window.location.href = "/login.html";
+    } 
+    },100);
+
+
         document.addEventListener("DOMContentLoaded", function () {
     let TotalPrice = 0;
 
@@ -268,12 +280,7 @@ let CouponButton = document.querySelector(".couponbtn").addEventListener("click"
 });
 
 
-    let isLoggedIn = localStorage.getItem("LoginData") !== null;
-
-    // If not logged in, redirect to login page
-    if (!isLoggedIn) {
-        window.location.href = "/login.html";
-    }
+   
 
     </script>
 </body>
