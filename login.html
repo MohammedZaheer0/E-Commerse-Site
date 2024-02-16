@@ -21,7 +21,7 @@
             background-clip: content-box;
         }
         #loginform{
-            height: 93vh;
+            height: 90vh;
             width: 28%;
             display: flex;
             flex-direction: column;
@@ -90,7 +90,7 @@
             color: hotpink;
             font-weight: bold;
         }
-        #form #continue{
+        #form #submit{
             padding: 0.6rem 3rem;
             margin: 0.2rem 0 1rem;
             background: rgb(245, 34, 140);
@@ -204,7 +204,7 @@
                     <ul id="select">
                      <li><a href="SignUp.html" class="accountli">SignUp</a></li>
                      <li><a href="login.html" class="accountli">Login</a></li>
-                     <li><a href="logout.html" class="accountli">Logout</a></li>
+                     <li><a href="logout.html" class="accountli" id="logout">Logout</a></li>
                     </ul>
                 </li>
                 <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
@@ -222,14 +222,14 @@
             <div id="offer">
                 <img src="images/specialoffer1.png">
             </div>
-            <label id="form">
+            <div id="form">
                 <label for="firstname">Login/ <a href="/SignUp.html" id="signup">SignUp</a></label>
                 <input type="number" id="input" name="phone" placeholder="+91  | Mobile Number" required>
                 <span class="error"></span>
                 <small>By continuing, I agree to the <a href="#">Terms of Use</a> & <a href="#">Privacy Policy</a></small>
-                <input type="submit" value="CONTINUE" name="submit" id="continue">
+                <input type="submit" value="CONTINUE" name="submit" id="submit">
                 <small>Have trouble logging in? <a href="/get_help.html">Get help</a></small>
-            </label>
+            </div>
         </form>
     
 
@@ -237,29 +237,17 @@
     <script src="main.js"></script>
 
     <script>
-    let Button = document.getElementById('continue').addEventListener("click",function(e){
+    let Button = document.getElementById('submit').addEventListener("click",function(e){
             e.preventDefault();
             let InputField = document.getElementById("input");
             let Span = document.querySelector(".error");
             Span.setAttribute("style","color:red;margin-bottom:0.7rem;font-size:0.8rem;");
             
-            if (InputField.value.length < 0) {
-                Span.textContent = "Please Enter Your Number";
-                InputField.value = "";
-            } else if (InputField.value.length !== 10) {
-                Span.textContent = "Number Must Be 10 Digits";
-                setTimeout(() => {
-                    Span.style.display = "none";
-                },3000);
-                InputField.value = "";
-            } else {
-
+            if(InputField.value.length === 10) {
                 let LoginData = JSON.parse(localStorage.getItem("LoginData")) || [];
                 LoginData.push(InputField.value);
-                localStorage.setItem("LoginData",JSON.stringify(LoginData));
+                localStorage.setItem("LoginData",JSON.stringify(LoginData));  
 
-
-                // Corrected logic for retrieving and checking the stored phone number
                 let StoreSignUp = JSON.parse(localStorage.getItem("StoreSignUp")) || [];
                 let storedPhone = StoreSignUp[0] ? StoreSignUp[0].phone : null;
 
@@ -271,8 +259,15 @@
                         InputField.value = ""; 
                     }, 100);
                 }
+            } else {
+                Span.textContent = "Number Must Be 10 Digits";
+                setTimeout(() => {
+                    Span.style.display = "none";
+                },3000);
+                InputField.value = "";              
             }
         });  
+        
     </script>
 </body>
 </html>

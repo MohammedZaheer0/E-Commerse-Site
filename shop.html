@@ -34,7 +34,7 @@
                         <ul id="select">
                          <li><a href="SignUp.html" class="accountli">SignUp</a></li>
                          <li><a href="login.html" class="accountli">Login</a></li>
-                         <li><a href="logout.html" class="accountli">Logout</a></li>
+                         <li><a href="logout.html" class="accountli" id="logout">Logout</a></li>
                         </ul>
                     </li>
                     <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
@@ -522,14 +522,20 @@
             const clothName = clothElement.textContent;
             const price = priceElement.textContent;
 
-            GetProductDetailes.push({
-            image: imageSrc,
-            clothName: clothName,
-            price: price,
-            uniqueId: Math.floor(Math.random()*100)
-            });
-            localStorage.setItem("ProductDetailes",JSON.stringify(GetProductDetailes));
+            const existingProduct = GetProductDetailes.find(item => item.image === imageSrc && item.clothName === clothName && item.price === price);
 
+            if(existingProduct){
+                existingProduct.quantity +=1;
+            }else{
+                GetProductDetailes.push({
+                image: imageSrc,
+                clothName: clothName,
+                price: price,
+                uniqueId: Math.floor(Math.random()*100)
+                });
+            }
+
+            localStorage.setItem("ProductDetailes",JSON.stringify(GetProductDetailes));
             window.location.href = "/Sproduct.html";
         }
         });

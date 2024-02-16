@@ -180,7 +180,7 @@
                     <ul id="select">
                      <li><a href="SignUp.html" class="accountli">SignUp</a></li>
                      <li><a href="login.html" class="accountli">Login</a></li>
-                     <li><a href="logout.html" class="accountli">Logout</a></li>
+                     <li><a href="logout.html" class="accountli" id="logout">Logout</a></li>
                     </ul>
                 </li>
                 <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
@@ -294,9 +294,14 @@
 
     if(!isEmpty){   
         let StoreSignUp = JSON.parse(localStorage.getItem("StoreSignUp")) || [];
-        StoreSignUp.push(formData);
-        localStorage.setItem("StoreSignUp",JSON.stringify(StoreSignUp));
-        window.location.assign("/index.html");
+        let phoneExists = StoreSignUp.some(user => user.phone === formData.phone);
+        if(!phoneExists){
+            StoreSignUp.push(formData);
+            localStorage.setItem("StoreSignUp",JSON.stringify(StoreSignUp));
+            window.location.assign("/index.html");
+        }else{
+            alert("Account Already Exists. Please Login");
+        }
 
     }
         

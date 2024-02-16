@@ -34,7 +34,7 @@
                         <ul id="select">
                          <li><a href="SignUp.html" class="accountli">SignUp</a></li>
                          <li><a href="login.html" class="accountli">Login</a></li>
-                         <li><a href="logout.html" class="accountli">Logout</a></li>
+                         <li><a href="logout.html" class="accountli" id="logout">Logout</a></li>
                         </ul>
                     </li>
                     <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
@@ -257,14 +257,15 @@
             AddToCart.addEventListener("click",()=>{
 
                 let StoreSignUp = JSON.parse(localStorage.getItem("StoreSignUp")) || [];
-                let storedPhone = StoreSignUp[0] ? StoreSignUp[0].phone : null;
+                let storedPhone = StoreSignUp.length > 0 ? StoreSignUp[0].phone : null;
 
-                if(storedPhone){
+                if (storedPhone !== null && storedPhone !== undefined && storedPhone !== "") {
                     window.location.href = "/cart.html";
                 } else {
                     window.location.href = "/login.html";
                 }
             });
+
 
 
     </script>
