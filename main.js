@@ -25,8 +25,6 @@ let Menu = document.querySelector(".navright ul");
   });
 
 
-
-
 // Single Product Js
 let MainImg = document.querySelector(".MainImg");
 let SPI = document.querySelectorAll(".SingleProductImages");
@@ -54,8 +52,6 @@ let FormBtn = document.querySelector(".submit");
   }
 
 
-
-
     // let ValidUrls = ["about", "blog", "cart", "contact", "index","404", "Sblog", "shop", "Sproduct", "thankyou"];
 
     // let CurrentUrl = window.location.pathname.split('/').pop().toLowerCase();
@@ -65,24 +61,5 @@ let FormBtn = document.querySelector(".submit");
     //     window.location.href = "/404.html";
     // }
     
-    
-
-
-
-
-
-
-
-
-
-
-
-
 
 });
-
-
-
-
-
-
