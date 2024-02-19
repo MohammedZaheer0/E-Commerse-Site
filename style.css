@@ -1482,6 +1482,8 @@ footer .footerinstallapp .appgoogle img{
 }
 .blog-content input[type="radio"]:checked + h3 + .bp{
     max-height: 400px;
+    line-height: 2;
+    text-align: justify;
 }
 .blog-content input[type="radio"]:checked + h3::before{
     content: "-";
